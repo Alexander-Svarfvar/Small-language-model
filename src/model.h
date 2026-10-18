@@ -1,11 +1,12 @@
 #include <map>
+#include "kgram.h"
 
 class Model{
     private:
 
         int kgram_length = 1;
 
-        std::map idk;
+        std::map<std::string, Kgram> kgrams;
 
     public:
 
@@ -13,5 +14,5 @@ class Model{
 
         void train(std::string filePath);
 
-        char next(std::char* context);
+        char next(char* context);
 };

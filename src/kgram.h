@@ -1,7 +1,9 @@
+#include <string>
+
 class Kgram{
     int length;
-    char kgram[lenght];
+    std::string kgram;
     
     public:
-        Kgram(int l, char string[l]);
+        Kgram(int l, std::string s);
 };
