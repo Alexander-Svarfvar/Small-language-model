@@ -15,10 +15,10 @@ void Model::train(std::string filePath){
     for(char c; file.get(c); ){
 
         if(kgrams.count(current_kgram)){
-            kgrams.at(current_kgram).increase_count();
+            kgrams.at(current_kgram).increase_total_count();
             kgrams.at(current_kgram).increase_character_count(c);
         }else{
-            Kgram temp_kgram(kgram_length, current_kgram);
+            Kgram temp_kgram;
             kgrams.insert({current_kgram, temp_kgram});
             kgrams.at(current_kgram).increase_character_count(c);
         }

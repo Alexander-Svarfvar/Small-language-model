@@ -8,7 +8,7 @@ class Model{
 
         std::string context = "";
 
-        int kgram_length = 1;
+        int kgram_length;
 
         std::map<std::string, Kgram> kgrams;
 

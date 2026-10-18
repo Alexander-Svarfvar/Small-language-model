@@ -4,16 +4,13 @@
 #include <map>
 
 class Kgram{
-    int length;
-    std::string kgram;
-    std::map<char, int> character_count; 
-    int count = 1;
+
+    std::map<char, int> character_counts; 
+    int total_count = 1;
     
     public:
 
-        Kgram(int l, std::string s);
-
-        void increase_count();
+        void increase_total_count();
 
         void increase_character_count(char c);
 

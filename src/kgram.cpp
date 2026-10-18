@@ -2,42 +2,41 @@
 #include <random>
 #include <iostream>
 
+//used for generating random integers with uniform distribution.
 std::random_device rd;
 std::mt19937 gen(rd());
 
-Kgram::Kgram(int l, std::string s){
-    length = l;
-    kgram = s;
-}
-
-void Kgram::increase_count(){
-    count++;
+void Kgram::increase_total_count(){
+    total_count++;
 }
 
 void Kgram::increase_character_count(char c){
-    if(character_count.count(c)){
-        character_count[c] += 1;
+    if(character_counts.count(c)){
+        character_counts[c] += 1;
     }else{
-        character_count.insert({c, 1});
+        character_counts.insert({c, 1});
     }
 }
 
 int Kgram::get_count(char c){
-    return character_count.at(c);
+    return character_counts.at(c);
 }
 
+//Returns a random character from character_counts weighted by their counts.
 char Kgram::get_character_from_dist(){
 
-    int sum = 0;
-    std::uniform_int_distribution<> distr(1, count);
+    std::uniform_int_distribution<> distr(1, total_count);
 
     int goal = distr(gen);
-    for(const auto &cc : character_count){
+    int sum = 0;
+
+    //
+    for(const auto &cc : character_counts){
         sum += cc.second;
         if(sum >= goal){
             return cc.first;
         }
     }
 
-    return '}';
+    return '/';
 }
