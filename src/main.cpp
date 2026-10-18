@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include "model.h"
 
 
 int main(int argc, char* argv[]){
@@ -19,6 +20,10 @@ int main(int argc, char* argv[]){
         }
     }
     else {
-        std::cerr << "Wrong number of arguments!"
+        std::cerr << "Wrong number of arguments!";
     }
+
+
+    Model model(k);
+    model.train(filePath);
 }
