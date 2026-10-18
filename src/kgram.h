@@ -14,8 +14,10 @@ class Kgram{
 
         void increase_character_count(char c);
 
-        int get_count(char c);
+        int get_total_count();
 
-        char get_character_from_dist();
+        int get_character_count(char c);
+
+        char get_character_from_dist(float alpha);
 
 };
