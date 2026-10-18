@@ -31,4 +31,8 @@ int main(int argc, char* argv[]){
 
     Model model(k);
     model.train(filePath);
+
+    for(int i = 0; i < output_length; i++){
+        std::cout << model.next();
+    }
 }

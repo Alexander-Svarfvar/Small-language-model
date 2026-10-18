@@ -6,6 +6,8 @@
 class Model{
     private:
 
+        std::string context = "";
+
         int kgram_length = 1;
 
         std::map<std::string, Kgram> kgrams;
@@ -16,5 +18,5 @@ class Model{
 
         void train(std::string filePath);
 
-        char next(char* context);
+        char next();
 };
