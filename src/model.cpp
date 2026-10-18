@@ -10,11 +10,24 @@ void Model::train(std::string filePath){
     
     std::ifstream file(filePath);
 
-    char context[kgram_length];
+    std::string current_kgram = "";
 
-    for(int i = 0; i < kgram_length; i++){
-        file.get(context[i]);
-        std::cout << context[i];
+    for(char c; file.get(c); ){
+        
+
+        if(current_kgram.length() >= kgram_length){
+            current_kgram = current_kgram.substr(1,kgram_length) + c;
+        }else{
+            current_kgram += c;
+        }
+
+        if(kgrams.count(current_kgram)){
+            kgrams.at(current_kgram).increase_count();
+            
+        }else{
+            Kgram temp_kgram(kgram_length, current_kgram);
+            kgrams.insert({current_kgram, temp_kgram});
+        }
+
     }
-
 }
